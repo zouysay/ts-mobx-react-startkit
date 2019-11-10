@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.less';
+import styles from './test.module.less'
+import { Button } from 'antd'
 
 const App: React.FC = () => {
   return (
@@ -16,8 +18,10 @@ const App: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React test
         </a>
+        <Button>test</Button>
+        <a href="_blank" className={styles.test}>haha</a>
       </header>
     </div>
   );
