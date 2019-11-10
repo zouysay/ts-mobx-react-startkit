@@ -1,0 +1,7 @@
+package.json
+index.html
+.prettierignore
+.gitignore
+yarn.lock
+node_modules
+config

@@ -3,12 +3,19 @@
 import * as React from 'react';
 import styles from './style.module.less';
 
+const a = 'test';
+
 export interface Props {
   name: string;
   enthusiasmLevel?: number;
 }
 
 class Hello extends React.Component<Props, object> {
+  constructor(props: any) {
+    super(props);
+    console.log(process.env.BUILD_ENV);
+    console.log(a, '>>>>>>>>>');
+  }
   render() {
     const { name, enthusiasmLevel = 1 } = this.props;
 
