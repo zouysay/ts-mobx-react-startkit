@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import styles from './style.module.less';
+import { Button } from 'antd';
 
 const a = 'test';
 
@@ -27,6 +28,7 @@ class Hello extends React.Component<Props, object> {
       <div className="hello">
         <div className={styles.greeting}>
           Hello {name + getExclamationMarks(enthusiasmLevel)}
+          <Button> button customize</Button>
         </div>
       </div>
     );

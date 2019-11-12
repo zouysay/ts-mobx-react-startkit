@@ -1,6 +1,8 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import routerList, { IRoute } from './routers';
+import { Provider } from 'mobx-react';
+import store from './store';
 
 class App extends React.Component<{}, {}> {
   getRouterDom = (routers: Array<IRoute>, level: number) => {
@@ -26,9 +28,11 @@ class App extends React.Component<{}, {}> {
   };
   render() {
     return (
-      <Router>
-        <Switch>{this.getRouterDom(routerList, 0)}</Switch>
-      </Router>
+      <Provider baseStore={store}>
+        <Router>
+          <Switch>{this.getRouterDom(routerList, 0)}</Switch>
+        </Router>
+      </Provider>
     );
   }
 }

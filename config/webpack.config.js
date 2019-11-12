@@ -52,6 +52,13 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 const lessRegex = /\.(less)$/;
 const lessModuleRegex = /\.module\.(less)$/;
 
+// 定制antd主题
+const lessModifyVars = {
+  modifyVars: {
+    'primary-color': '#1DA57A',
+  }
+}
+
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
@@ -121,6 +128,7 @@ module.exports = function(webpackEnv) {
       },
     ].filter(Boolean);
     if (preProcessor) {
+      const temp = preProcessor === 'less-loader' ? lessModifyVars : {}
       loaders.push(
         {
           loader: require.resolve('resolve-url-loader'),
@@ -133,6 +141,7 @@ module.exports = function(webpackEnv) {
           options: {
             sourceMap: true,
             javascriptEnabled: true,
+            ...temp
           },
         }
       );
